@@ -32,6 +32,20 @@ function checkInfo2(){
     }
     return true
 }
+
+//  显示登录的用户名在首页
+function load_storage(){
+    var udata=localStorage.getItem("current");
+    udata = JSON.parse(udata)
+    user = udata.user
+    if(user==null||user==""){
+        $("#user-logo").html("");
+    }else{
+        $("#user-logo").html(user);
+    }
+}
+
+
 // 登录
 function login(){
     if(checkInfo()){
@@ -86,3 +100,5 @@ function register(){
         });
     }
 }
+
+load_storage()
